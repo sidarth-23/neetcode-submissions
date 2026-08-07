@@ -1,0 +1,29 @@
+class Solution {
+    /**
+     * @param {string} s
+     * @return {boolean}
+     */
+    validPalindrome(s: string): boolean {
+        let l = 0, r = s.length - 1
+        while (l < r) {
+            if (s[l] !== s[r]) {
+                return (this.isPalindrome(s.slice(0,l) + s.slice(l + 1)) || this.isPalindrome(s.slice(0, r) + s.slice(r + 1)))
+            }
+            l++;
+            r--
+        }
+        return true
+    }
+
+    isPalindrome(s: string): boolean {
+        let l = 0, r = s.length - 1
+        while (l < r) {
+            if (s[l] !== s[r]) {
+                return false
+            }
+            r--;
+            l++;
+        }
+        return true
+    }
+}
